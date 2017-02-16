@@ -1,0 +1,24 @@
+{
+  "name": "muzero-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel app.js -d build",
+    "start": "babel-node index.js",
+    "test": "mocha --compilers js:babel/register --require ./test/test_helper.js  --recursive",
+    "test:watch": "npm run test -- --watch"
+  },
+  "author": "Michael Quoma",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mssql": "^3.3.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "winston": "^2.2.0"
+  }
+}
