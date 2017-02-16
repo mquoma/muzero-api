@@ -32,7 +32,7 @@ var repo = function () {
 
         getUserPendingRequests: function (user, cb) {
 
-            var sql = 'SELECT [UserId] ,[DateRequested] ,[NumDays] ,[RequestStatus] from muzero..Requests WHERE UserId = @UserId';
+            var sql = 'SELECT [UserId] ,[DateRequested] ,[NumDays] ,[RequestStatus] from muzero..Requests WHERE UserId = @UserId ORDER BY DateRequested';
             var params = [{
                 name: 'UserId',
                 type: mssql.VarChar(255),
@@ -44,7 +44,7 @@ var repo = function () {
 
         getAllUserRequests: function (user, cb) {
 
-            var sql = 'SELECT * FROM muzero..Directors D JOIN muzero..Users U on U.Department = D.Department AND D.UserId = @DirectorId JOIN muzero..Requests R ON R.UserId = U.UserId';
+            var sql = 'SELECT R.* FROM muzero..Directors D JOIN muzero..Users U on U.Department = D.Department AND D.UserId = @DirectorId JOIN muzero..Requests R ON R.UserId = U.UserId ORDER BY DateRequested';
             var params = [{
                 name: 'DirectorId',
                 type: mssql.VarChar(255),
